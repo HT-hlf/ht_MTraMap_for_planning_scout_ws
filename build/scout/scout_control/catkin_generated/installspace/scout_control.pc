@@ -1,0 +1,8 @@
+prefix=/home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/install
+
+Name: scout_control
+Description: Description of scout_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

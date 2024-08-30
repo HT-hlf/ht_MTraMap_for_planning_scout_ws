@@ -1,0 +1,58 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_865bf/fast && /usr/bin/make -f CMakeFiles/cmTC_865bf.dir/build.make CMakeFiles/cmTC_865bf.dir/build
+make[1]: 进入目录“/home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_865bf.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_865bf.dir/src.c.o   -c /home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_865bf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_865bf.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_865bf.dir/src.c.o  -o cmTC_865bf 
+/usr/bin/ld: CMakeFiles/cmTC_865bf.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_865bf.dir/build.make:87：cmTC_865bf] 错误 1
+make[1]: 离开目录“/home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_865bf/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d45c4/fast && /usr/bin/make -f CMakeFiles/cmTC_d45c4.dir/build.make CMakeFiles/cmTC_d45c4.dir/build
+make[1]: 进入目录“/home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d45c4.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d45c4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d45c4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d45c4.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_d45c4.dir/CheckFunctionExists.c.o  -o cmTC_d45c4  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_d45c4.dir/build.make:87：cmTC_d45c4] 错误 1
+make[1]: 离开目录“/home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_d45c4/fast] 错误 2
+
+
+

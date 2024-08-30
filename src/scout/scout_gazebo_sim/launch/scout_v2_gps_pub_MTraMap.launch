@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+Software License Agreement (BSD)
+
+\file      husky_empty_world.launch
+\authors   Paul Bovbel <pbovbel@clearpathrobotics.com, Devon Ash <dash@clearpathrobotics.com>
+\copyright Copyright (c) 2015, Clearpath Robotics, Inc., All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that
+the following conditions are met:
+ * Redistributions of source code must retain the above copyright notice, this list of conditions and the
+   following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+   following disclaimer in the documentation and/or other materials provided with the distribution.
+ * Neither the name of Clearpath Robotics nor the names of its contributors may be used to endorse or promote
+   products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WAR-
+RANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, IN-
+DIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<launch>
+
+    <arg name="robot_namespace" default="/"/>
+    <!-- 目前只有 elemap_internet_mass_uzh_elevation_height_1_distancex_42_distancey_42; 
+    elemap_internet_mass_uzh_elevation_height_2_distancex_21_distancey_21;
+    uzh_elevation_height_1_distancex_21_distancey_21; 可供选择 (不可用)  -->
+    <!-- version2_C4D_20_map3-height_height_100_distancex_2050_distancey_205 -->
+    <arg name="world_name" default="version2_C4D_20_map3-height_height_200_distancex_2050_distancey_2050.world"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="/home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/src/ht_terrain_MTraMap/world/$(arg world_name)"/>
+
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <include file="$(find scout_gazebo_sim)/launch/localization_example.launch"></include>
+
+    <include file="$(find scout_gazebo_sim)/launch/spawn_scout_v2.launch"></include>
+
+    <include file="$(find ht_mtramap_pub)/launch/pub_MTraMap_local.launch">
+      <arg name="world_name" default="$(arg world_name)"/>
+      <!--通过性阈值 这个只可以设置为 0.5，0.6,0.7,0.8,0.9 -->
+      <arg name="conf_threshold" default="0.5"/>
+    </include>
+
+    <include file="$(find ht_mtramap_pub)/launch/pub_MTraMap_global.launch">
+      <arg name="world_name" default="$(arg world_name)"/>
+      <!--通过性阈值 这个只可以设置为 0.5，0.6,0.7,0.8,0.9 -->
+      <arg name="conf_threshold" default="0.5"/>
+    </include>
+
+    
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find scout_description)/rviz/model_display.rviz" />
+
+
+</launch>

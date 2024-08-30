@@ -1,0 +1,10 @@
+<launch>
+
+
+<arg name="world_name" default="elemap_internet_mass_uzh_elevation_height_1_distancex_42_distancey_42.world"/>
+<!--通过性阈值 这个只可以设置为 0.5，0.6,0.7,0.8,0.9 -->
+<arg name="conf_threshold" default="0.5"/>
+
+<node name="ht_mtramap_pub_local" pkg="ht_mtramap_pub" type="pub_MTraMap_frome_image_local.py" respawn="false" output="screen"
+	args="$(arg world_name) $(arg conf_threshold)" />
+</launch>

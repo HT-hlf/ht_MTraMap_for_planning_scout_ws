@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='ASCII'?>
+<sdf version="1.7">
+  <model name="version2_C4D_20_map3-height_height_150_distancex_2050_distancey_2050">
+    <static>true</static>
+    <link name="terrain_link">
+      <collision name="collision">
+        <geometry>
+          <heightmap>
+            <uri>model://version2_C4D_20_map3-height_height_150_distancex_2050_distancey_2050/materials/textures/version2_C4D_20_map3-height_height_150_distancex_2050_distancey_2050.png</uri>
+            <size>20.5 20.5 1.5</size>
+            <pos>0 0 0</pos>
+          </heightmap>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <heightmap>
+            <texture>
+              <diffuse>model://version2_C4D_20_map3-height_height_150_distancex_2050_distancey_2050/materials/textures/cgaxis_pbr_15_grey_asphalt_7/cgaxis_pbr_15_grey_asphalt_7_diffuse.jpg</diffuse>
+              <normal>model://version2_C4D_20_map3-height_height_150_distancex_2050_distancey_2050/materials/textures/cgaxis_pbr_15_grey_asphalt_7/cgaxis_pbr_15_grey_asphalt_7_normal.jpg</normal>
+              <size>1</size>
+            </texture>
+            <uri>model://version2_C4D_20_map3-height_height_150_distancex_2050_distancey_2050/materials/textures/version2_C4D_20_map3-height_height_150_distancex_2050_distancey_2050.png</uri>
+            <size>20.5 20.5 1.5</size>
+            <pos>0 0 0</pos>
+          </heightmap>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

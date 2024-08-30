@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ASCII'?>
+<sdf version="1.7">
+  <world name="version2_C4D_20_map3-height_height_150_distancex_2050_distancey_2050">
+    <physics type="ode">
+      <real_time_factor>10</real_time_factor>
+      <max_step_size>0.01</max_step_size>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <include>
+      <uri>model://version2_C4D_20_map3-height_height_150_distancex_2050_distancey_2050</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+  </world>
+</sdf>

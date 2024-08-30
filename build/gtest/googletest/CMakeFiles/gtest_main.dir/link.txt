@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -std=c++17 -O3  -shared -Wl,-soname,libgtest_main.so -o ../lib/libgtest_main.so CMakeFiles/gtest_main.dir/src/gtest_main.cc.o  -Wl,-rpath,/home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/build/gtest/lib ../lib/libgtest.so -lpthread 
