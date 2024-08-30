@@ -1,8 +1,0 @@
-prefix=/home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/install
-
-Name: ht_mtramap_pub
-Description: Description of ht_mtramap_pub
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,2 +1,0 @@
-ht_mtramap_pub:scout/scout_control:scout/scout_description:scout/scout_gazebo_sim
--DCATKIN_DEVEL_PREFIX=/home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ht/ht_code/PLAN_WS/ht_MTraMap_for_planning_scout_ws/install -G Unix Makefiles
